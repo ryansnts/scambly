@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Chat</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="/css/home.css"></link>
+        <style>
+       :root {
+        --primary-color: #6a1b9a;
+        --secondary-color: #9c27b0;
+        --accent-color: #e1bee7;
+        --background-color: #f5f5f5;
+        --text-color: #333;
+        --white: #ffffff;
+        --gray: #e0e0e0;
+        --light-gray: #f0f0f0;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    .container2 {
+        max-width: 1400px;
+        margin: 80px auto 0;
+        height: 770px;
+        display: flex;
+        background-color: var(--white);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        border-radius: 20px 20px 0 0;
+        overflow: hidden;
+    }
+
+    .chat-list {
+        width: 30%;
+        border-right: 1px solid var(--gray);
+        overflow-y: auto;
+    }
+
+    .chat-search {
+        padding: 1rem;
+        background-color: var(--light-gray);
+    }
+
+    .chat-search input {
+        width: 100%;
+        padding: 0.8rem;
+        border: 1px solid var(--gray);
+        border-radius: 20px;
+        font-size: 1rem;
+    }
+
+    .chat-item {
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        border-bottom: 1px solid var(--gray);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .chat-item:hover, .chat-item.active {
+        background-color: var(--accent-color);
+    }
+
+    .chat-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 1rem;
+        object-fit: cover;
+    }
+
+    .chat-info {
+        flex-grow: 1;
+    }
+
+    .chat-name {
+        font-weight: 600;
+        color: var(--primary-color);
+    }
+
+    .chat-preview {
+        font-size: 0.9rem;
+        color: var(--text-color);
+        opacity: 0.7;
+    }
+
+    .chat-meta {
+        text-align: right;
+        font-size: 0.8rem;
+    }
+
+    .chat-time {
+        color: var(--text-color);
+        opacity: 0.5;
+    }
+
+    .chat-unread {
+        background-color: var(--secondary-color);
+        color: var(--white);
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5px;
+    }
+
+    .chat-window {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .chat-header {
+        display: flex;
+        align-items: center;
+        padding: 1rem 2rem;
+        background-color: var(--light-gray);
+        border-bottom: 1px solid var(--gray);
+    }
+
+    .chat-header-info {
+        flex-grow: 1;
+        margin-left: 1rem;
+    }
+
+    .chat-header-name {
+        font-weight: 600;
+        font-size: 1.2rem;
+    }
+
+    .chat-header-status {
+        font-size: 0.9rem;
+        color: var(--text-color);
+        opacity: 0.7;
+    }
+
+    .chat-header-actions {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .chat-header-action {
+        background: none;
+        border: none;
+        font-size: 1.2rem;
+        color: var(--primary-color);
+        cursor: pointer;
+    }
+
+    .chat-messages {
+        flex-grow: 1;
+        overflow-y: auto;
+        padding: 1rem 2rem;
+        background-color: var(--white);
+    }
+
+    .message {
+        max-width: 70%;
+        padding: 0.8rem 1rem;
+        margin-bottom: 1rem;
+        border-radius: 20px;
+        position: relative;
+    }
+
+    .message-time {
+        font-size: 0.8rem;
+        opacity: 0.7;
+        margin-top: 0.3rem;
+    }
+
+    .message.received {
+        background-color: var(--light-gray);
+        align-self: flex-start;
+        border-bottom-left-radius: 0;
+    }
+
+    .message.sent {
+        background-color: var(--primary-color);
+        color: var(--white);
+        align-self: flex-end;
+        border-bottom-right-radius: 0;
+    }
+
+    .chat-input {
+        display: flex;
+        align-items: center;
+        padding: 1rem 2rem;
+        background-color: var(--light-gray);
+        border-top: 1px solid var(--gray);
+    }
+
+    .chat-input input {
+        flex-grow: 1;
+        padding: 0.8rem;
+        border: 1px solid var(--gray);
+        border-radius: 20px;
+        font-size: 1rem;
+        margin-right: 1rem;
+    }
+
+    .chat-input button {
+        background-color: var(--primary-color);
+        color: var(--white);
+        border: none;
+        padding: 0.8rem;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .chat-input button:hover {
+        background-color: var(--secondary-color);
+    }
+
+    .emoji-picker {
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        margin-right: 0.5rem;
+    }
+
+    .attachment {
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        margin-right: 0.5rem;
+    }
+
+    .typing-indicator {
+        display: flex;
+        align-items: center;
+        padding: 0.5rem 1rem;
+    }
+
+    .typing-indicator span {
+        height: 8px;
+        width: 8px;
+        background-color: #333;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 5px;
+        animation: typing 1s infinite;
+    }
+
+    .typing-indicator span:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    .typing-indicator span:nth-child(3) {
+        animation-delay: 0.4s;
+    }
+
+    @keyframes typing {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
+        100% { transform: translateY(0); }
+    }
+        </style>
+</head>
+<body>
+    <nav class="navbartopo">
+        <div class="navbar-left">
+            <a href="/home.html"><div class="logo-placeholder"></div></a>
+            <span class="navbar-text">Olá, Arleson Brito da Silva Junior</span>
+        </div>
+        <div class="navbar-right">
+            <a href="/tutor/seja-um-tutor.html"><button class="tutor-button">Seja um Tutor</button></a>
+            <a href="/usuario/meu-perfil.html"><div class="profile-icon"></div></a>
+        </div>
+    </nav>
+<div class="uptudo">
+
+    <div class="container2">
+        <div class="chat-list">
+            <div class="chat-search">
+                <input type="text" placeholder="Pesquisar conversas...">
+            </div>
+            <div class="chat-item active">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="João Silva avatar" class="chat-avatar" width="50" height="50">
+                <div class="chat-info">
+                    <div class="chat-name">João Silva</div>
+                    <div class="chat-preview">Oi! Como vai a sua prática de inglês?</div>
+                </div>
+                <div class="chat-meta">
+                    <div class="chat-time">14:30</div>
+                    <div class="chat-unread">2</div>
+                </div>
+            </div>
+            <div class="chat-item">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Maria Santos avatar" class="chat-avatar" width="50" height="50">
+                <div class="chat-info">
+                    <div class="chat-name">Maria Santos</div>
+                    <div class="chat-preview">¡Hola! ¿Listo para nossa clase de español?</div>
+                </div>
+                <div class="chat-meta">
+                    <div class="chat-time">Ontem</div>
+                </div>
+            </div>
+            <div class="chat-item">
+                <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Carlos Oliveira avatar" class="chat-avatar" width="50" height="50">
+                <div class="chat-info">
+                    <div class="chat-name">Carlos Oliveira</div>
+                    <div class="chat-preview">Hello! How's your German coming along?</div>
+                </div>
+                <div class="chat-meta">
+                    <div class="chat-time">Seg</div>
+                </div>
+            </div>
+            <div class="chat-item">
+                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Ana Rodrigues avatar" class="chat-avatar" width="50" height="50">
+                <div class="chat-info">
+                    <div class="chat-name">Ana Rodrigues</div>
+                    <div class="chat-preview">Ciao! Pronto per la lezione di italiano?</div>
+                </div>
+                <div class="chat-meta">
+                    <div class="chat-time">23/05</div>
+                </div>
+            </div>
+        </div>
+        <div class="chat-window">
+            <div class="chat-header">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="João Silva avatar" class="chat-avatar" width="50" height="50">
+                <div class="chat-header-info">
+                    <div class="chat-header-name">João Silva</div>
+                    <div class="chat-header-status">Online</div>
+                </div>
+                <div class="chat-header-actions">
+                    <button class="chat-header-action"><i class="fas fa-phone"></i></button>
+                    <button class="chat-header-action"><i class="fas fa-video"></i></button>
+                    <button class="chat-header-action"><i class="fas fa-info-circle"></i></button>
+                </div>
+            </div>
+            <div class="chat-messages">
+                <div class="message received">
+                    Oi! Como vai a sua prática de inglês?
+                    <div class="message-time">14:30</div>
+                </div>
+                <div class="message sent">
+                    Olá João! Está indo bem, obrigado. Tenho praticado todos os dias.
+                    <div class="message-time">14:32</div>
+                </div>
+                <div class="message received">
+                    Que ótimo! Lembre-se de usar os recursos do app para praticar pronúncia.
+                    <div class="message-time">14:35</div>
+                </div>
+                <div class="message sent">
+                    Sim, estou usando o recurso de reconhecimento de voz. É muito útil!
+                    <div class="message-time">14:37</div>
+                </div>
+                <div class="message received">
+                    Excelente! Na nossa próxima aula, vamos focar em conversação. Prepare-se!
+                    <div class="message-time">14:40</div>
+                </div>
+            </div>
+            <div class="chat-input">
+                <button class="emoji-picker"><i class="far fa-smile"></i></button>
+                <button class="attachment"><i class="fas fa-paperclip"></i></button>
+                <input type="text" placeholder="Digite sua mensagem...">
+                <button><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const chatItems = document.querySelectorAll('.chat-item');
+        const chatWindow = document.querySelector('.chat-window');
+        const chatHeader = document.querySelector('.chat-header');
+        const chatMessages = document.querySelector('.chat-messages');
+        const chatInput = document.querySelector('.chat-input input');
+        const sendButton = document.querySelector('.chat-input button:last-child');
+
+        const randomResponses = {
+            portuguese: [
+                "Interessante! Pode me contar mais sobre isso?",
+                "Entendo. Como você se sente em relação a isso?",
+                "Que legal! Você tem praticado isso regularmente?",
+                "Ótimo progresso! Alguma dificuldade específica que você gostaria de trabalhar?",
+                "Isso é muito bom! Você já experimentou usar essa habilidade em uma situação real?",
+                "Fascinante! Você poderia elaborar um pouco mais?",
+                "Excelente observação! Como você chegou a essa conclusão?",
+                "Que perspectiva interessante! Você já considerou isso de outro ângulo?",
+                "Muito bem! Quer tentar um exercício relacionado a isso?",
+                "Ótimo trabalho! Quer um desafio extra para praticar mais?"
+            ],
+            spanish: [
+                "¡Interesante! ¿Puedes contarme más sobre eso?",
+                "Entiendo. ¿Cómo te sientes al respecto?",
+                "¡Qué bueno! ¿Has estado practicando esto regularmente?",
+                "¡Excelente progreso! ¿Hay alguna dificultad específica en la que te gustaría trabajar?",
+                "¡Eso es muy bueno! ¿Has intentado usar esta habilidad en una situación real?",
+                "¡Fascinante! ¿Podrías elaborar un poco más?",
+                "¡Excelente observación! ¿Cómo llegaste a esa conclusión?",
+                "¡Qué perspectiva tan interesante! ¿Has considerado esto desde otro ángulo?",
+                "¡Muy bien! ¿Quieres intentar un ejercicio relacionado con esto?",
+                "¡Buen trabajo! ¿Quieres un desafío extra para practicar más?"
+            ],
+            english: [
+                "Interesting! Can you tell me more about that?",
+                "I see. How do you feel about that?",
+                "That's great! Have you been practicing this regularly?",
+                "Excellent progress! Any specific difficulties you'd like to work on?",
+                "That's very good! Have you tried using this skill in a real-life situation?",
+                "Fascinating! Could you elaborate a bit more?",
+                "Excellent observation! How did you come to that conclusion?",
+                "What an interesting perspective! Have you considered this from another angle?",
+                "Very good! Would you like to try an exercise related to this?",
+                "Great work! Want an extra challenge to practice more?"
+            ]
+        };
+
+        function getRandomResponse(language) {
+            const responses = randomResponses[language] || randomResponses.english;
+            return responses[Math.floor(Math.random() * responses.length)];
+        }
+
+        function addTypingIndicator() {
+            const typingIndicator = document.createElement('div');
+            typingIndicator.classList.add('message', 'received', 'typing-indicator');
+            typingIndicator.innerHTML = '<span></span><span></span><span></span>';
+            chatMessages.appendChild(typingIndicator);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function removeTypingIndicator() {
+            const typingIndicator = chatMessages.querySelector('.typing-indicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+
+        chatItems.forEach(item => {
+            item.addEventListener('click', () => {
+                chatItems.forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+                updateChatWindow(item);
+            });
+        });
+
+        function updateChatWindow(item) {
+            const avatar = item.querySelector('.chat-avatar').src;
+            const name = item.querySelector('.chat-name').textContent;
+            
+            chatHeader.innerHTML = `
+                <img src="${avatar}" alt="${name} avatar" class="chat-avatar" width="50" height="50">
+                <div class="chat-header-info">
+                    <div class="chat-header-name">${name}</div>
+                    <div class="chat-header-status">Online</div>
+                </div>
+                <div class="chat-header-actions">
+                    <button class="chat-header-action"><i class="fas fa-phone"></i></button>
+                    <button class="chat-header-action"><i class="fas fa-video"></i></button>
+                    <button class="chat-header-action"><i class="fas fa-info-circle"></i></button>
+                </div>
+            `;
+            
+            chatMessages.innerHTML = '<div class="message received">Olá! Como posso ajudar você hoje?<div class="message-time">Agora</div></div>';
+        }
+
+        sendButton.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+
+        function sendMessage() {
+            const message = chatInput.value.trim();
+            if (message) {
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('message', 'sent');
+                messageElement.innerHTML = `
+                    ${message}
+                    <div class="message-time">Agora</div>
+                `;
+                chatMessages.appendChild(messageElement);
+                chatInput.value = '';
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                // Add typing indicator
+                addTypingIndicator();
+
+                // Simulate response delay
+                setTimeout(() => {
+                    removeTypingIndicator();
+                    const responseElement = document.createElement('div');
+                    responseElement.classList.add('message', 'received');
+                    const randomResponse = getRandomResponse('portuguese'); // You can change the language here
+                    responseElement.innerHTML = `
+                        ${randomResponse}
+                        <div class="message-time">Agora</div>
+                    `;
+                    chatMessages.appendChild(responseElement);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 1500); // 1.5 seconds delay
+            }
+        }
+    </script>
+</div>
+<!-- INFO-2 -->
+<div class="msg-fundo">
+    <center><p>Scambly Inc. © Copyright 2024. Todos os direitos reservados.</p></center>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body></html>

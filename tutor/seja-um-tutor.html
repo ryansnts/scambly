@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Seja um Tutor</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/home.css"></link>
+        <style>
+           .container {
+            margin-top: 80px;
+            max-width: 1200px;
+            margin: 80px auto 0;
+            padding: 2rem;
+            background-color: var(--white);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-radius: 20px;
+        }
+
+        .requirements-list {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .form-section {
+            margin-top: 30px;
+        }
+
+        .upload-section {
+            margin-top: 20px;
+        }
+
+        .header-title {
+            color: #3D015A; /* Atualizado para roxo */
+        }
+
+        .btn-primary {
+            background-color: #3D015A; /* Atualizado para roxo */
+            border-color: #3D015A; /* Atualizado para roxo */
+        }
+
+        .btn-primary:hover {
+            background-color: #5B0099;
+            border-color: #5B0099;
+        }
+
+        .icon-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            flex-direction: column;
+        }
+
+        .icon-button a {
+            margin-bottom: 10px;
+        }
+
+        .icon-button i {
+            margin-right: 8px;
+        }
+        .msg-fundo2{
+        margin-top: 25px;
+}
+        </style>
+</head>
+<body>
+    <nav class="navbartopo">
+        <div class="navbar-left">
+            <a href="/home.html"><div class="logo-placeholder"></div></a>
+            <span class="navbar-text">Olá, Arleson Brito da Silva Junior</span>
+        </div>
+        <div class="navbar-right">
+            <a href="/tutor/seja-um-tutor.html"><button class="tutor-button">Seja um Tutor</button></a>
+            <a href="/usuario/meu-perfil.html"><div class="profile-icon"></div></a>
+        </div>
+    </nav>
+<div class="uptudo">
+    <div class="container">
+        <h1 class="text-center header-title">O que é necessário para ser um Tutor?</h1>
+        <p class="text-center">Se você deseja se tornar um tutor na nossa plataforma, é necessário atender aos seguintes requisitos:</p>
+
+        <!-- Requisitos -->
+        <ul class="requirements-list mt-3">
+            <li>Domínio avançado de pelo menos um idioma além do seu nativo.</li>
+            <li>Experiência prévia em ensino ou tutoria.</li>
+            <li>Boa comunicação e habilidades interpessoais.</li>
+            <li>Certificados comprovando sua proficiência em idiomas.</li>
+            <li>Capacidade de ensinar alunos em diferentes níveis (básico, intermediário, avançado).</li>
+        </ul>
+
+        <!-- Botões de Provas de Idiomas -->
+        <div class="icon-button text-center">
+            <a href="/tutor/testes/ingles-teste.html" class="btn btn-primary">
+                <i class="bi bi-file-earmark-text"></i> Prova de Inglês (IELTS/TOEFL)
+            </a>
+            <a href="/tutor/testes/espanhol-teste.html" class="btn btn-primary">
+                <i class="bi bi-file-earmark-text"></i> Prova de Espanhol (DELE)
+            </a>
+            <a href="/tutor/testes/italiano-teste.html" class="btn btn-primary">
+                <i class="bi bi-file-earmark-text"></i> Prova de Italiano (CILS)
+            </a>
+            <a href="/tutor/testes/frances-teste.html" class="btn btn-primary">
+                <i class="bi bi-file-earmark-text"></i> Prova de Francês (DELF/DALF)
+            </a>
+        </div>
+
+        <!-- Formulário -->
+        <form class="form-section">
+            <div class="mb-3">
+                <label for="full-name" class="form-label">Nome Completo</label>
+                <input type="text" class="form-control" id="full-name" placeholder="Digite seu nome completo" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">E-mail</label>
+                <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail" required>
+            </div>
+            <div class="mb-3">
+                <label for="language" class="form-label">Idiomas que você domina</label>
+                <input type="text" class="form-control" id="language" placeholder="Ex: Inglês, Espanhol" required>
+            </div>
+
+            <div class="form-section">
+                <h3>Teste suas Habilidades</h3>
+                <p>Responda às perguntas:</p>
+                <div class="mb-3">
+                    <label for="question1" class="form-label">1. Descreva uma metodologia que você usaria para ensinar um aluno iniciante.</label>
+                    <textarea class="form-control" id="question1" rows="3" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="question2" class="form-label">2. Como você avalia o progresso dos seus alunos?</label>
+                    <textarea class="form-control" id="question2" rows="3" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="question3" class="form-label">3. Quais ferramentas ou recursos você usa para ensinar online?</label>
+                    <textarea class="form-control" id="question3" rows="3" required></textarea>
+                </div>
+            </div>
+
+            <!-- Seção de Upload -->
+            <div class="upload-section">
+                <h4>Envie seus Certificados</h4>
+                <div class="mb-3">
+                    <label for="certificates" class="form-label">Certificados de Proficiência</label>
+                    <input type="file" class="form-control" id="certificates" multiple required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Enviar Inscrição</button>
+        </form>
+    </div>
+</div>
+<!-- INFO-2 -->
+<div class="msg-fundo2">
+    <center><p>Scambly Inc. © Copyright 2024. Todos os direitos reservados.</p></center>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body></html>

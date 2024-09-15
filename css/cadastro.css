@@ -1,0 +1,109 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 600px;
+}
+.logo-site{
+    background: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiaandcssT1GLIGqnM3JxbbuZpvuEXgtbUxc_OSD_MbCzKdqEl-C8SoI3uV417w6FVWq2zfE8l6thNESdWfQdJF6Yt92RNRNV3fASfyKZ14PcOqZQYc_3XWbC64houeyeqOEGAOjhcFw8mpg88st36KYfBVhzOjawkX91xvBannys6LS2rr2sRapkAp/s1600/logo.pn") no-repeat;  
+    width: 420px;
+    height: 200px;
+    text-align: center;
+}
+h1 {
+    color: #9100d8;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 25px;
+}
+.input-group {
+    margin-bottom: 1rem;
+}
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #000;
+}
+input, select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 2px solid #e6e6fa;
+    border-radius: 8px;
+    font-size: 18px;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #9100d8;
+    color: white;
+    border: none;
+    border-radius: 11px;
+    cursor: pointer;
+    font-size: 18px;
+}
+button:hover {
+    background-color: #3D015A;
+    transition: background-color 0.3s ease;
+}
+#plans-container {
+    display: none;
+    text-align: center;
+}
+#plans-container h2 {
+    color: #9100d8;
+    margin-bottom: 1rem;
+}
+#plans-container button {
+    margin-bottom: 1rem;
+}
+#not-ready {
+    color: #000;
+    text-decoration: none;
+    font-size: 20px;
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+}
+#not-ready:hover {
+    color:#000;
+}
+.language-entry {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.language-entry input {
+    flex-grow: 1;
+}
+.language-entry select {
+    width: 120px;
+}
+.remove-language {
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 0 10px;
+}
+.remove-language:hover {
+    background-color: #ff4444;
+}
+#add-language {
+    background-color: #4CAF50;
+    margin-bottom: 1rem;
+}

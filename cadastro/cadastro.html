@@ -1,0 +1,90 @@
+<html lang="pt-BR">
+    <head>
+        <title>Cadastro</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/cadastro.css"></link>
+</head>
+<body>
+    <div class="container" id="language-form">
+        <center><div class="logo-site"></div></center>
+        <h1>Poderia nos fornecer algumas informações?</h1>
+        <form id="language-selection">
+            <div class="input-group">
+                <label for="native-language">Digite sua língua nativa:</label>
+                <input type="text" id="native-language" name="native-language" required>
+            </div>
+            <center><h2>Línguas que você domina</h2></center>
+            <div id="languages-container">
+                <div class="language-entry">
+                    <input type="text" name="language[]" placeholder="Digite a língua" required>
+                    <select name="level[]" required>
+                        <option value="">Nível</option>
+                        <option value="basico">Básico</option>
+                        <option value="intermediario">Intermediário</option>
+                        <option value="avancado">Avançado</option>
+                        <option value="fluente">Fluente</option>
+                    </select>
+                    <button type="button" class="remove-language">X</button>
+                </div>
+            </div>
+            <button type="button" id="add-language">Adicionar mais línguas</button>
+            <button type="submit">Próximo</button>
+        </form>
+    </div>
+
+    <div class="container" id="plans-container">
+        <center><div class="logo-site"></div></center>
+        <h2>Obrigado pelas informações! Caso tenha interesse compre pontos hoje mesmo.</h2>
+        <p>Quanto mais pontos, mais acesso às aulas personalizadas pelos tutores você pode ter.</p>
+        <a href="/loja.html"><button id="go-to-store">Ir para a loja</button></a>
+        <a href="/usuario/meu-perfil.html" id="not-ready">Ir ao meu perfil</a>
+    </div>
+
+    <script>
+        const languagesContainer = document.getElementById('languages-container');
+        const addLanguageButton = document.getElementById('add-language');
+
+        function createLanguageEntry() {
+            const entry = document.createElement('div');
+            entry.className = 'language-entry';
+            entry.innerHTML = `
+                <input type="text" name="language[]" placeholder="Digite a língua" required>
+                <select name="level[]" required>
+                    <option value="">Nível</option>
+                    <option value="basico">Básico</option>
+                    <option value="intermediario">Intermediário</option>
+                    <option value="avancado">Avançado</option>
+                    <option value="fluente">Fluente</option>
+                </select>
+                <button type="button" class="remove-language">X</button>
+            `;
+            return entry;
+        }
+
+        addLanguageButton.addEventListener('click', function() {
+            languagesContainer.appendChild(createLanguageEntry());
+        });
+
+        languagesContainer.addEventListener('click', function(e) {
+            if (e.target.classList.contains('remove-language')) {
+                if (languagesContainer.children.length > 1) {
+                    e.target.closest('.language-entry').remove();
+                } else {
+                    alert('Você deve manter pelo menos uma língua.');
+                }
+            }
+        });
+
+        document.getElementById('language-selection').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would typically validate and process the form data
+            document.getElementById('language-form').style.display = 'none';
+            document.getElementById('plans-container').style.display = 'block';
+        });
+
+        document.getElementById('go-to-store').addEventListener('click', function() {
+            window.location.href = '#link-aqui';
+        });
+    </script>
+</body></html>

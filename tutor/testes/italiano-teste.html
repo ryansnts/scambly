@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <title>Prova di Italiano (CILS)</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/home.css"></link>
+        <style>
+            .container {
+            margin-top: 50px;
+            max-width: 1200px;
+            margin: 80px auto 0;
+            padding: 2rem;
+            background-color: var(--white);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-radius: 20px;
+        }
+
+        .question-section {
+            margin-bottom: 30px;
+        }
+
+        .header-title {
+            color: #007bff; /* Azul */
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        </style>
+</head>
+<body>
+    <nav class="navbartopo">
+        <div class="navbar-left">
+            <a href="/home.html"><div class="logo-placeholder"></div></a>
+            <span class="navbar-text">Olá, Arleson Brito da Silva Junior</span>
+        </div>
+        <div class="navbar-right">
+            <a href="/tutor/seja-um-tutor.html"><button class="tutor-button">Seja um Tutor</button></a>
+            <a href="/usuario/meu-perfil.html"><div class="profile-icon"></div></a>
+        </div>
+    </nav>
+<div class="uptudo">
+    <div class="container">
+        <h1 class="text-center header-title">Prova di Italiano (CILS)</h1>
+        <p class="text-center">Rispondi alle 33 domande seguenti per valutare la tua competenza in italiano.</p>
+
+        <form>
+            <!-- Comprensione e Interpretazione -->
+            <div class="question-section">
+                <h4>Comprensione e Interpretazione (Domande 1 a 10)</h4>
+                <p><b>Testo:</b> Leggi il seguente testo:</p>
+                <p><i>"Nel mondo moderno, la tecnologia è diventata un motore di sviluppo sociale. Internet, i telefoni cellulari e i computer hanno rivoluzionato il modo in cui le persone comunicano, lavorano e accedono alle informazioni. Tuttavia, questo progresso tecnologico ha anche suscitato preoccupazioni sulla privacy e sugli effetti del tempo eccessivo trascorso davanti agli schermi."</i></p>
+
+                <label for="reading-question-1" class="form-label">1. Qual è il tema principale del testo?</label>
+                <input type="text" class="form-control" id="reading-question-1" required>
+
+                <label for="reading-question-2" class="form-label">2. Qual è uno degli effetti negativi menzionati nel testo?</label>
+                <input type="text" class="form-control" id="reading-question-2" required>
+
+                <label for="reading-question-3" class="form-label">3. Quali tecnologie vengono menzionate nel testo?</label>
+                <input type="text" class="form-control" id="reading-question-3" required>
+
+                <label for="reading-question-4" class="form-label">4. Cosa suggerisce il testo riguardo alla relazione tra tecnologia e privacy?</label>
+                <input type="text" class="form-control" id="reading-question-4" required>
+
+                <label for="reading-question-5" class="form-label">5. Come descrive il testo il cambiamento nel modo di comunicare?</label>
+                <input type="text" class="form-control" id="reading-question-5" required>
+
+                <label for="reading-question-6" class="form-label">6. Quale potrebbe essere una conseguenza dell'uso eccessivo degli schermi?</label>
+                <input type="text" class="form-control" id="reading-question-6" required>
+
+                <label for="reading-question-7" class="form-label">7. L'autore è a favore o contro l'uso della tecnologia? Spiega.</label>
+                <input type="text" class="form-control" id="reading-question-7" required>
+
+                <label for="reading-question-8" class="form-label">8. Secondo il testo, cosa ha rivoluzionato la tecnologia?</label>
+                <input type="text" class="form-control" id="reading-question-8" required>
+
+                <label for="reading-question-9" class="form-label">9. Il testo suggerisce che la tecnologia ha portato più benefici o problemi? Giustifica la tua risposta.</label>
+                <input type="text" class="form-control" id="reading-question-9" required>
+
+                <label for="reading-question-10" class="form-label">10. Quali potrebbero essere soluzioni ai problemi menzionati nel testo?</label>
+                <input type="text" class="form-control" id="reading-question-10" required>
+            </div>
+
+            <!-- Grammatica -->
+            <div class="question-section">
+                <h4>Grammatica (Domande 11 a 30)</h4>
+
+                <label for="grammar-question-11" class="form-label">11. Completa la frase: "Se io ____ (sapere) la risposta, te lo direi."</label>
+                <input type="text" class="form-control" id="grammar-question-11" required>
+
+                <label for="grammar-question-12" class="form-label">12. Scegli la forma corretta: "Lei ____ (ha/è) finito il suo lavoro."</label>
+                <input type="text" class="form-control" id="grammar-question-12" required>
+
+                <label for="grammar-question-13" class="form-label">13. Completa: "Quando arriverai, io ____ (avrò finito/finirò) il progetto."</label>
+                <input type="text" class="form-control" id="grammar-question-13" required>
+
+                <label for="grammar-question-14" class="form-label">14. Scegli la forma corretta: "Nessuna delle risposte ____ (è/sono) corretta."</label>
+                <input type="text" class="form-control" id="grammar-question-14" required>
+
+                <label for="grammar-question-15" class="form-label">15. Completa: "Loro ____ (devono/non possono) essere a casa, perché le luci sono spente."</label>
+                <input type="text" class="form-control" id="grammar-question-15" required>
+
+                <label for="grammar-question-16" class="form-label">16. Completa: "Magari ____ (avessi/ho) più tempo per viaggiare."</label>
+                <input type="text" class="form-control" id="grammar-question-16" required>
+
+                <label for="grammar-question-17" class="form-label">17. Completa: "Lui ha vissuto negli Stati Uniti ____ (per/da) 10 anni."</label>
+                <input type="text" class="form-control" id="grammar-question-17" required>
+
+                <label for="grammar-question-18" class="form-label">18. Completa: "Io ____ (ero solito/solitamente) giocare a calcio quando ero bambino."</label>
+                <input type="text" class="form-control" id="grammar-question-18" required>
+
+                <label for="grammar-question-19" class="form-label">19. Completa: "Quando avevo 18 anni, già ____ (avevo visitato/visitai) 5 paesi."</label>
+                <input type="text" class="form-control" id="grammar-question-19" required>
+
+                <label for="grammar-question-20" class="form-label">20. Scegli la forma corretta: "Tutti ____ (è/sono) stati invitati alla festa."</label>
+                <input type="text" class="form-control" id="grammar-question-20" required>
+
+                <label for="grammar-question-21" class="form-label">21. Completa: "Lei ____ (potrebbe/deve) essere addormentata adesso."</label>
+                <input type="text" class="form-control" id="grammar-question-21" required>
+
+                <label for="grammar-question-22" class="form-label">22. Completa: "Loro ____ (stavano/seduti) a tavola quando sono arrivato."</label>
+                <input type="text" class="form-control" id="grammar-question-22" required>
+
+                <label for="grammar-question-23" class="form-label">23. Scegli la forma corretta: "Nessuno di loro ____ (era/erano) consapevole del problema."</label>
+                <input type="text" class="form-control" id="grammar-question-23" required>
+
+                <label for="grammar-question-24" class="form-label">24. Completa: "Il rapporto ____ (è stato scritto/scrisse) dal direttore."</label>
+                <input type="text" class="form-control" id="grammar-question-24" required>
+
+                <label for="grammar-question-25" class="form-label">25. Completa: "Non ____ (avevo/ho avuto) bisogno di portare l'ombrello; non stava piovendo."</label>
+                <input type="text" class="form-control" id="grammar-question-25" required>
+
+                <label for="grammar-question-26" class="form-label">26. Scegli la forma corretta: "Lei ____ (non poteva/potrebbe) nuotare quando era bambina."</label>
+                <input type="text" class="form-control" id="grammar-question-26" required>
+
+                <label for="grammar-question-27" class="form-label">27. Completa: "Lui ha detto che ____ (avrebbe/aiuterebbe) domani."</label>
+                <input type="text" class="form-control" id="grammar-question-27" required>
+
+                <label for="grammar-question-28" class="form-label">28. Scegli la forma corretta: "La squadra ____ (ha/hanno) lavorato duramente."</label>
+                <input type="text" class="form-control" id="grammar-question-28" required>
+
+                <label for="grammar-question-29" class="form-label">29. Completa: "Se lei ____ (studia/studiasse) di più, supererà l'esame."</label>
+                <input type="text" class="form-control" id="grammar-question-29" required>
+
+                <label for="grammar-question-30" class="form-label">30. Scegli la forma corretta: "Io ____ (non ho/ha) visto lei da molto tempo."</label>
+                <input type="text" class="form-control" id="grammar-question-30" required>
+            </div>
+
+            <!-- Scrittura -->
+            <div class="question-section">
+                <h4>Scrittura (Domande 31 a 33)</h4>
+
+                <label for="writing-question-31" class="form-label">31. Scrivi un paragrafo sui benefici della tecnologia nell'educazione (minimo 50 parole).</label>
+                <textarea class="form-control" id="writing-question-31" rows="4" required></textarea>
+
+                <label for="writing-question-32" class="form-label">32. Scrivi uno svantaggio dell'uso eccessivo dei social media (minimo 50 parole).</label>
+                <textarea class="form-control" id="writing-question-32" rows="4" required></textarea>
+
+                <label for="writing-question-33" class="form-label">33. Spiega come l'apprendimento di una seconda lingua può migliorare la tua carriera professionale (minimo 50 parole).</label>
+                <textarea class="form-control" id="writing-question-33" rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 mt-3">Invia Risposte</button>
+        </form>
+    </div>
+
+</div>
+<!-- INFO-2 -->
+<div class="msg-fundo">
+    <center><p>Scambly Inc. © Copyright 2024. Todos os direitos reservados.</p></center>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body></html>

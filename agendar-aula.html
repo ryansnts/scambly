@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Agendar Aula</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/home.css"></link>
+        <style>
+            :root {
+        --primary-color: #6a1b9a;
+        --secondary-color: #9c27b0;
+        --accent-color: #e1bee7;
+        --background-color: #f5f5f5;
+        --text-color: #333;
+        --white: #ffffff;
+    }
+         .container2 {
+        max-width: 900px;
+        margin: 120px auto 50px;
+        padding: 2.5rem;
+        background-color: var(--white);
+        border-radius: 20px;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    
+    h1 {
+        color: var(--primary-color);
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 2.8rem;
+        font-weight: 700;
+        text-shadow: 1px 1px 2px rgba(106, 27, 154, 0.1);
+    }
+    
+    .form-group {
+        margin-bottom: 2rem;
+    }
+    
+    label {
+        display: block;
+        margin-bottom: 0.7rem;
+        color: var(--primary-color);
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+    
+    select, input[type="number"] {
+        width: 100%;
+        padding: 0.9rem;
+        border: 2px solid var(--accent-color);
+        border-radius: 10px;
+        font-size: 1rem;
+        color: var(--text-color);
+        background-color: var(--white);
+        transition: all 0.3s ease;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%236a1b9a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        background-size: 1.2em;
+    }
+    
+    select:focus, input[type="number"]:focus {
+        outline: none;
+        border-color: var(--secondary-color);
+        box-shadow: 0 0 0 3px rgba(156, 39, 176, 0.2);
+    }
+    
+    .calendar {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 0.8rem;
+        margin-top: 1.5rem;
+    }
+    
+    .calendar-day {
+        background-color: var(--accent-color);
+        color: var(--primary-color);
+        padding: 0.8rem;
+        text-align: center;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    
+    .calendar-day:hover, .calendar-day.selected {
+        background-color: var(--secondary-color);
+        color: var(--white);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .calendar-day.unavailable {
+        background-color: #e0e0e0;
+        color: #9e9e9e;
+        cursor: not-allowed;
+        opacity: 0.7;
+    }
+    
+    .book-button {
+        display: block;
+        width: 100%;
+        padding: 1.2rem;
+        background-color: var(--primary-color);
+        color: var(--white);
+        text-align: center;
+        text-decoration: none;
+        border-radius: 10px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: none;
+        cursor: pointer;
+        margin-top: 2.5rem;
+        font-size: 1.1rem;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    .book-button:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    
+    .points-available {
+        text-align: center;
+        margin-bottom: 2rem;
+        font-weight: 600;
+        color: var(--primary-color);
+        font-size: 1.2rem;
+        background-color: var(--accent-color);
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    @media (max-width: 768px) {
+        .container {
+            padding: 1.5rem;
+            margin: 100px 20px 30px;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+        }
+        
+        .calendar {
+            gap: 0.5rem;
+        }
+        
+        .calendar-day {
+            padding: 0.6rem;
+            font-size: 0.9rem;
+        }
+    }
+        </style>
+</head>
+<body>
+    <nav class="navbartopo">
+        <div class="navbar-left">
+            <a href="/home.html"><div class="logo-placeholder"></div></a>
+            <span class="navbar-text">Olá, Arleson Brito da Silva Junior</span>
+        </div>
+        <div class="navbar-right">
+            <a href="/tutor/seja-um-tutor.html"><button class="tutor-button">Seja um Tutor</button></a>
+            <a href="/usuario/meu-perfil.html"><div class="profile-icon"></div></a>
+        </div>
+    </nav>
+<div class="uptudo">
+
+    <div class="container2">
+        <h1>Agendar Aula</h1>
+        <div class="points-available">Você tem <i class="bi bi-coin" style="font-size: 26px; color: #000;"></i><span id="pointsAvailable" style="font-size: 26px; color: #000;"> 1250 S-Coins</span> moedas disponíveis</div>
+        <form id="bookingForm">
+            <div class="form-group">
+                <label for="tutor">Escolha o tutor:</label>
+                <select id="tutor" required>
+                    <option value="">Selecione um tutor</option>
+                    <option value="João Silva">João Silva</option>
+                    <option value="Maria Santos">Maria Santos</option>
+                    <option value="Carlos Oliveira">Carlos Oliveira</option>
+                    <option value="Ana Rodrigues">Ana Rodrigues</option>
+                    <option value="Pedro Almeida">Pedro Almeida</option>
+                    <option value="Lucia Fernandez">Lucia Fernandez</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="language">Escolha o idioma:</label>
+                <select id="language" required>
+                    <option value="">Selecione o idioma</option>
+                    <!-- Options will be dynamically populated based on tutor selection -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="duration">Escolha a duração da aula (em horas):</label>
+                <input type="number" id="duration" min="1" max="4" value="1" required>
+            </div>
+            <div class="form-group">
+                <label>Escolha o dia e horário:</label>
+                <div class="calendar" id="calendar">
+                    <!-- Calendar days will be dynamically populated -->
+                </div>
+            </div>
+            <button type="submit" class="book-button">Confirmar Agendamento</button>
+        </form>
+    </div>
+
+    <script>
+        const tutors = {
+            "João Silva": ["Português", "Inglês", "Espanhol"],
+            "Maria Santos": ["Espanhol", "Inglês", "Francês"],
+            "Carlos Oliveira": ["Inglês", "Português", "Alemão"],
+            "Ana Rodrigues": ["Português", "Inglês", "Italiano"],
+            "Pedro Almeida": ["Francês", "Português", "Inglês"],
+            "Lucia Fernandez": ["Espanhol", "Português", "Inglês"]
+        };
+
+        const tutorSelect = document.getElementById('tutor');
+        const languageSelect = document.getElementById('language');
+        const calendar = document.getElementById('calendar');
+        const bookingForm = document.getElementById('bookingForm');
+
+        tutorSelect.addEventListener('change', updateLanguages);
+        bookingForm.addEventListener('submit', handleBooking);
+
+        function updateLanguages() {
+            const selectedTutor = tutorSelect.value;
+            languageSelect.innerHTML = '<option value="">Selecione o idioma</option>';
+            if (selectedTutor && tutors[selectedTutor]) {
+                tutors[selectedTutor].forEach(language => {
+                    const option = document.createElement('option');
+                    option.value = language;
+                    option.textContent = language;
+                    languageSelect.appendChild(option);
+                });
+            }
+        }
+
+        function populateCalendar() {
+            const daysOfWeek = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
+            const today = new Date();
+            calendar.innerHTML = '';
+
+            for (let i = 0; i < 14; i++) {
+                const date = new Date(today);
+                date.setDate(today.getDate() + i);
+                const dayElement = document.createElement('div');
+                dayElement.classList.add('calendar-day');
+                dayElement.textContent = `${daysOfWeek[date.getDay()]} ${date.getDate()}`;
+                dayElement.dataset.date = date.toISOString().split('T')[0];
+
+                if (Math.random() > 0.7) {
+                    dayElement.classList.add('unavailable');
+                } else {
+                    dayElement.addEventListener('click', selectDay);
+                }
+
+                calendar.appendChild(dayElement);
+            }
+        }
+
+        function selectDay(event) {
+            document.querySelectorAll('.calendar-day').forEach(day => day.classList.remove('selected'));
+            event.target.classList.add('selected');
+        }
+
+        function handleBooking(event) {
+            event.preventDefault();
+            const selectedTutor = tutorSelect.value;
+            const selectedLanguage = languageSelect.value;
+            const duration = document.getElementById('duration').value;
+            const selectedDay = document.querySelector('.calendar-day.selected');
+
+            if (!selectedTutor || !selectedLanguage || !duration || !selectedDay) {
+                alert('Por favor, preencha todos os campos e selecione um dia disponível.');
+                return;
+            }
+
+            const bookingDetails = `
+                Tutor: ${selectedTutor}
+                Idioma: ${selectedLanguage}
+                Duração: ${duration} hora(s)
+                Data: ${selectedDay.textContent}
+            `;
+
+            alert(`Aula agendada com sucesso!\n\n${bookingDetails}`);
+        }
+
+        populateCalendar();
+    </script>
+
+</div>
+<!-- INFO-2 -->
+<div class="msg-fundo">
+    <center><p>Scambly Inc. © Copyright 2024. Todos os direitos reservados.</p></center>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body></html>

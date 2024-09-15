@@ -1,0 +1,136 @@
+body, html {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    width: 95%;
+    height: 700px;
+    background: white;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 10px 10px 40px #eee;
+}
+.logo-site{
+    background: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEifXEKcir08jCNRphv2fkbS75LjnL61JoyyZCWNkCe2lOF9jY8BZQ-lVxGe2DsOiSd9aB5Fe40dtVJeLXtaQ1iUnfa-LvF1rERu2aukgZgi0RiAggNxrNDF6rvRpaYrnmFcWJko3l7z_iDq6Xk6MU3p58pUtgwO2VXIUU4QFdu30HW81sqy9RPLmmtd/s1600/logo.png") no-repeat;
+    width: 420px;
+    height: 200px;
+}
+.painel-esquerdo {
+    flex: 1;
+    width: 500px;
+    background: #9100d8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 25px;
+    box-shadow: 10px 0 30px #ddd;
+}
+
+.painel-direito {
+    flex: 1;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+p {
+    font-size: 1.1em;
+    text-align: center;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.form {
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e6e6fa;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #9100d8;
+    outline: none;
+}
+
+.botao-login-cadastro {
+    width: 100%;
+    padding: 13px;
+    background: #9100d8;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botao-login-cadastro:hover {
+    background: #3D015A;
+}
+
+.esqueceu-senha{
+    text-align: center;
+    color: #9100d8;
+}
+
+.esqueceu-senha a {
+    color: #9100d8;
+    text-decoration: none;
+    font-weight: 600;
+}
+.esqueceu-senha a:hover {
+    text-decoration: underline;
+}
+.switch-form {
+    margin-top: 20px;
+    text-align: center;
+    color: #000;
+}
+
+.switch-form a {
+    color: #9100d8;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.switch-form a:hover {
+    text-decoration: underline;
+}
+.msg-fundo{
+    margin-top: 35px;
+}
